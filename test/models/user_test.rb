@@ -1,6 +1,17 @@
 require 'test_helper'
 
 class UserTest < ActiveSupport::TestCase
+  
+  def create
+    @user = User.new(user_params)
+    if @user.save
+      UserMailer.account_activation(@user).deliver_now
+      flash[:info] = "Please check your email to activate your account."
+      redirect_to root_url
+    else
+      render 'new'
+    end
+  end
 
   def setup
     @user = User.new(name: "Example User", email: "user@example.com",
@@ -60,6 +71,6 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "authenticated? should return false for a user with nil digest" do
-    assert_not @user.authenticated?('')
+    assert_not @user.authenticated?(:remember, '')
   end
 end
