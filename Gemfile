@@ -9,6 +9,9 @@ gem 'coffee-rails',         '4.1.0'
 gem 'jquery-rails',         '4.0.3'
 gem 'turbolinks',           '2.3.0'
 gem 'faker',                '1.1.2'
+gem 'carrierwave',          '0.10.0'
+gem 'mini_magick',          '3.8.0'
+gem 'fog',                  '1.23.0'
 gem "will_paginate",      "~> 3.0.4" 
 gem 'jbuilder',             '2.2.3'
 gem 'sdoc',                 '0.4.0', group: :doc
